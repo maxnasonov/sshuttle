@@ -350,7 +350,8 @@ class Darwin(FreeBsd):
         # that in some cases ends up in the chain so the rules we will add,
         # which rely on translating/filtering  packets on lo, can work
         if self.has_skip_loopback():
-            pfctl('-f /dev/stdin', b'pass on lo\n')
+            #pfctl('-f /dev/stdin', b'pass on lo\n')
+            pfctl('-f /Users/nasonov/Dropbox/mac-user/pf.conf')
         super(Darwin, self).add_anchors(anchor)
 
     def _add_natlook_ports(self, pnl, src_port, dst_port):
